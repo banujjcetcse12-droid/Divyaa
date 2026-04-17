@@ -14,8 +14,9 @@ public class VendingMachine {
             System.out.println("1. Coke - ₹40");
             System.out.println("2. Pepsi - ₹35");
             System.out.println("3. Water - ₹20");
-            System.out.println("4. Insert Money");
-            System.out.println("5. Exit");
+            System.out.println("4. Juice - ₹50");   
+            System.out.println("5. Insert Money");
+            System.out.println("6. Exit");
 
             System.out.print("Enter your choice: ");
             choice = sc.nextInt();
@@ -48,15 +49,25 @@ public class VendingMachine {
                     }
                     break;
 
-                case 4:
+                case 4:  
+                    if (balance >= 50) {
+                        System.out.println("Juice dispensed");
+                        balance -= 50;
+                    } else {
+                        System.out.println("Insufficient balance! Insert money.");
+                    }
+                    break;
+
+                case 5:
                     System.out.print("Enter amount: ₹");
                     double money = sc.nextDouble();
                     balance += money;
                     System.out.println("Balance: ₹" + balance);
                     break;
 
-                case 5:
+                case 6:
                     System.out.println("Thank you! Remaining balance: ₹" + balance);
+                    sc.close();
                     return;
 
                 default:
