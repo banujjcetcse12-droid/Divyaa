@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+public class VendingMachine {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int choice;
+        double balance = 0;
+
+        System.out.println("Welcome to Vending Machine");
+
+        while (true) {
+            System.out.println("\nMenu:");
+            System.out.println("1. Coke - ₹40");
+            System.out.println("2. Pepsi - ₹35");
+            System.out.println("3. Water - ₹20");
+            System.out.println("4. Insert Money");
+            System.out.println("5. Exit");
+
+            System.out.print("Enter your choice: ");
+            choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    if (balance >= 40) {
+                        System.out.println("Coke dispensed");
+                        balance -= 40;
+                    } else {
+                        System.out.println("Insufficient balance! Insert money.");
+                    }
+                    break;
+
+                case 2:
+                    if (balance >= 35) {
+                        System.out.println("Pepsi dispensed");
+                        balance -= 35;
+                    } else {
+                        System.out.println("Insufficient balance! Insert money.");
+                    }
+                    break;
+
+                case 3:
+                    if (balance >= 20) {
+                        System.out.println("Water dispensed");
+                        balance -= 20;
+                    } else {
+                        System.out.println("Insufficient balance! Insert money.");
+                    }
+                    break;
+
+                case 4:
+                    System.out.print("Enter amount: ₹");
+                    double money = sc.nextDouble();
+                    balance += money;
+                    System.out.println("Balance: ₹" + balance);
+                    break;
+
+                case 5:
+                    System.out.println("Thank you! Remaining balance: ₹" + balance);
+                    return;
+
+                default:
+                    System.out.println("Invalid choice!");
+            }
+        }
+    }
+}
