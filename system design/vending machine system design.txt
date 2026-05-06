@@ -1,0 +1,33 @@
++-------------------+
+|  VendingMachine   |
++-------------------+
+| machineId         |
+| location          |
+| balance           |
++-------------------+
+| selectProduct()   |
+| insertMoney()     |
+| dispenseProduct() |
+| returnChange()    |
++-------------------+
+        |
+        | 1..*
+        v
++-------------------+
+|       Slot        |
++-------------------+
+| slotId            |
+| quantity          |
++-------------------+
+        |
+        | 1
+        v
++-------------------+
+|     Product       |
++-------------------+
+| productId         |
+| name              |
+| price             |
++-------------------+
+
+VendingMachine ---> Transaction ---> Payment
